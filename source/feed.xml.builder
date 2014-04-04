@@ -1,12 +1,12 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  xml.title "Blog Name"
-  xml.subtitle "Blog subtitle"
-  xml.id "http://blog.url.com/"
-  xml.link "href" => "http://blog.url.com/"
-  xml.link "href" => "http://blog.url.com/feed.xml", "rel" => "self"
+  xml.title "Kaylee's Blog"
+  xml.subtitle "Learning to code is kind of like pullin' teeth.."
+  xml.id "http://kaylees-gschool-blog.herokuapp.com/"
+  xml.link "href" => "http://kaylees-gschool-blog.herokuapp.com//"
+  xml.link "href" => "http://kaylees-gschool-blog.herokuapp.com//feed.xml", "rel" => "self"
   xml.updated blog.articles.first.date.to_time.iso8601
-  xml.author { xml.name "Blog Author" }
+  xml.author { xml.name "Kaylee Edmonson" }
 
   blog.articles[0..5].each do |article|
     xml.entry do
@@ -15,7 +15,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
       xml.id article.url
       xml.published article.date.to_time.iso8601
       xml.updated article.date.to_time.iso8601
-      xml.author { xml.name "Article Author" }
+      xml.author { xml.name "Kaylee Edmonson" }
       xml.summary article.summary, "type" => "html"
       xml.content article.body, "type" => "html"
     end
