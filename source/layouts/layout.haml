@@ -10,6 +10,7 @@
     / Set the viewport width to device width for mobile
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
     %title= data.page.title
+
     / Included CSS Files
     = stylesheet_link_tag "app", "theme", "ghfm"
     = javascript_include_tag "foundation/modernizr.foundation"
@@ -18,7 +19,10 @@
     .row
       .twelve.columns
         %h2
+          %img(src="/images/glasses.JPG" width="200")
           %a{href: "/"}= data.site.title
+          %h3= data.site.subtitle
+
         %hr
     .row
       .eight.columns
@@ -41,6 +45,9 @@
             %a{href: "#tags"} Tags
         %ul.tabs-content
           %li#recentTab.active
+            %h4 About the Author
+            %p= data.site.subtitle2
+            %a{href: "mailto:kaylee.edmonson@gmail.com"} Contact Kaylee
             %h4 Recent Articles
             %ul.disc
               - blog.articles[0...10].each do |article|
@@ -55,3 +62,4 @@
                 %li
                   %a{href: "#{tag_path tag}"}
                     = "#{tag} (#{articles.size})"
+
