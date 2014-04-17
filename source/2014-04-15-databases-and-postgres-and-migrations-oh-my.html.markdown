@@ -13,8 +13,10 @@ Put simply, a database lets us store relative information in a table format. Thi
 
 We all know that you can create a database within postgres in your command line. But  when you have larger apps that need testing that can become a bit of a lengthy task. The [sequel gem](https://github.com/jeremyevans/sequel) helps you incorporate those same commands that you would run in your terminal, within your app. From there, you create a scripts directory and a file within that titled create_database.sql. The contents of that file are the same as the postgres commands and should look like this:
 
-CREATE DATABASE <preferred database name>_development;
-CREATE DATABASE <preferred database name>_test;
+CREATE DATABASE (preferred database name)development;
+
+
+CREATE DATABASE (preferred database name)test;
 
 Now, in order for those databases to be truly created within your local environment, you run in your command line:
 
@@ -28,12 +30,13 @@ In that file you want the commands to make said table. Below, you’ll see a typ
 
 Just like like the database you need to run this string in your terminal to apply the changes to both your databases.
 Keep in mind the general setup of your migration command should look like this
- $ sequel -m <directory name> postgres://<username>:<password>@localhost<port>/<database>
+ $ sequel -m (directory name) postgres://(username):(password)@localhost(port)/(database)
 
 Development Database:
 ![Migration command](/images/migration_command.png)
 Test Database:
 ![Migration command](/images/migration_test.png)
+
 Now, both of your databases are up to date with the latest changes.
 
 For small apps your test database string will be defined in your spec_helper. There will be an almost identical line in your config.ru with the exception that this one will be the path to your development database rather than the test.
